@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { DomSanitizer} from '@angular/platform-browser';
+import { Plugins } from '@capacitor/core';
+const { Browser } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private sanitizer: DomSanitizer) {
+    this.openUrl();
+  }
 
+  async openUrl(){
+    console.log('Opening');
+    await Browser.open({ url: 'https://www.dailymall.id' });
+  }
+  // openURL(){
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.dailymall.id/");
+  //   return "https://www.dailymall.id/";
+  // }
 }
