@@ -1,0 +1,7 @@
+{
+  "name": "dailymall",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
